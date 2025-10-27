@@ -47,3 +47,4 @@ with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file_obj:
             azi_val = float(row[0][58:71])
         print(row)
 print(list_passes)
+print(len(list_passes))
