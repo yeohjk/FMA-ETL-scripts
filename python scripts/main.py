@@ -39,7 +39,7 @@ with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file_obj:
             azi_val = float(row[0][58:71])
             dt_sta_val = row[0][29:53]
             continue
-        # Checks elevation angle
+        # Checks elevation angle with that of previous value
         ele_val = float(row[0][76:91])
         azi_val = float(row[0][58:71])
         dt_val = row[0][29:53]
