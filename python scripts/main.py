@@ -41,9 +41,9 @@ with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file_obj:
             continue
         # Checks elevation angle with that of previous value
         ele_val = float(row[0][76:91])
-        azi_val = float(row[0][58:71])
         dt_val = row[0][29:53]
         if ele_val > ele_val_max:
             ele_val_max = ele_val
+            azi_val = float(row[0][58:71])
         print(row)
 print(list_passes)
