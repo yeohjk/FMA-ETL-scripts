@@ -6,9 +6,15 @@ import csv
 # Postcondition: Opens file of interest and extracts azimuth value at maximum elevation
 with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file_obj:
     csv_obj = csv.reader(file_obj)
-    print("Start")
-    # Postcondition: Extracts azimuth value at maximum elevation
-    for i in csv_obj:
-        if i == []:
+    print("Starting parsing\n")
+    # Loops through rows of txt file
+    row_ind = 0
+    for row in csv_obj:
+        # Ensures parsing starts on row with index of 4 which is the first row of data
+        if row_ind < 4:
+            row_ind += 1
             continue
-        print(i)
+        # Skips empty rows dividing passes
+        elif row == []:
+            continue
+        print(row)
