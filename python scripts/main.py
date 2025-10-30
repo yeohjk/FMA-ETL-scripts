@@ -7,7 +7,7 @@ list_passes = []
 print("Start of parsing\n")
 
 # Postcondition: Opens file of interest and extracts azimuth value at maximum elevation
-with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file:
+with open("..\Sim 43\ContactLocator_TLE_SAT.txt", "r") as file:
     # Prints first row of text file
     row_str = file.readline()
     row = row_str[:-1]
