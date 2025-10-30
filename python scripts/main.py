@@ -3,9 +3,11 @@
 # Creates list of pass information
 list_passes = []
 
+# Print statement for start
+print("Start of parsing\n")
+
 # Postcondition: Opens file of interest and extracts azimuth value at maximum elevation
 with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file:
-    print("Starting parsing\n")
     # Prints first row of text file
     row_str = file.readline()
     row = row_str[:-1]
@@ -56,3 +58,6 @@ with open("data/ContactLocator_TLE_SAT_2.txt", "r") as file:
             azi_val = float(row[58:71])
 print(list_passes)
 print(len(list_passes))
+
+# Print statement for start
+print("End of parsing\n")
