@@ -56,8 +56,8 @@ with open("..\Sim 43\ContactLocator_TLE_SAT.txt", "r") as file:
         if ele_val > ele_val_max:
             ele_val_max = ele_val
             azi_val = float(row[58:71])
-print(list_passes)
-print(len(list_passes))
+print(list_passes, "\n")
+print(len(list_passes, "passes\n"))
 
 # Print statement for start
 print("End of parsing\n")
