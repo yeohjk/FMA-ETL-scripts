@@ -80,3 +80,5 @@ for pass_list in list_passes:
 # Displays list_passes and number of passes
 print(list_passes, "\n")
 print(len(list_passes), "passes\n")
+
+# Writing list_passes to txt file
