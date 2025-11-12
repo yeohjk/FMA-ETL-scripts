@@ -59,5 +59,5 @@ with open("..\Sim 43\ContactLocator_TLE_SAT.txt", "r") as file:
 print(list_passes, "\n")
 print(len(list_passes, "passes\n"))
 
-# Print statement for start
+# Print statement for end
 print("End of parsing\n")
