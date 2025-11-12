@@ -1,5 +1,8 @@
 # Main script for data transformation
 
+# Imports packages
+from datetime import datetime
+
 # Creates list of pass information
 list_passes = []
 
@@ -56,8 +59,24 @@ with open("..\Sim 43\ContactLocator_TLE_SAT.txt", "r") as file:
         if ele_val > ele_val_max:
             ele_val_max = ele_val
             azi_val = float(row[58:71])
+
+# Displays list_passes and number of passes
 print(list_passes, "\n")
 print(len(list_passes), "passes\n")
 
 # Print statement for end
-print("End of parsing\n")
+print("End of parsing")
+
+# Looping through list_passes
+for pass_list in list_passes:
+    # Calculates and appends pass duration in seconds to pass information 
+    sta_str = pass_list[0]
+    sta_dt = datetime.strptime(sta_str[:-4], "%d %b %Y %H:%M:%S")
+    end_str = pass_list[1]
+    end_dt = datetime.strptime(end_str[:-4], "%d %b %Y %H:%M:%S")
+    duration_int = (end_dt-sta_dt).seconds
+    pass_list.append(duration_int)
+
+# Displays list_passes and number of passes
+print(list_passes, "\n")
+print(len(list_passes), "passes\n")
