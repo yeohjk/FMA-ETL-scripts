@@ -81,4 +81,23 @@ for pass_list in list_passes:
 print(list_passes, "\n")
 print(len(list_passes), "passes\n")
 
-# Writing list_passes to txt file
+# Loading extracted and transformed data to text file for further processing
+file_content = ["Target: SAT\n",\
+           "\n",\
+           "Observer: GSC2\n",\
+            "Start Time (UTC)            Stop Time (UTC)               Duration (s)     Azimuth at PCA (deg)\n"]
+
+for row in list_passes:
+    duration_str = str(row[3])
+    while len(duration_str) < 3:
+        duration_str = " " + duration_str
+    row_str = row[0] + "    " + row[1] + "      " + duration_str + 14*" " + str(row[2]) + "\n"
+    file_content.append(row_str)
+
+file_content += ["\n",\
+                     f"Number of events : {len(list_passes)}\n",\
+                     "\n",\
+                     "\n"]
+
+with open("test_transformed_data.txt", "w") as file:
+    file.writelines(file_content)
