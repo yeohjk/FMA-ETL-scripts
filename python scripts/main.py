@@ -3,13 +3,13 @@
 # Imports packages
 from datetime import datetime
 
-# Creates list of pass information
-list_passes = []
-
 # Defines function ETL
 def ETL(sim_num_int):
     # Print statement for start
-    print("Start of ETL process\n")
+    print(f"Start of ETL process for Sim {sim_num_int}\n")
+
+    # Creates list of pass information
+    list_passes = []
 
     # Postcondition: Opens file of interest and extracts azimuth value at maximum elevation
     with open(f"..\Sim {sim_num_int}\ContactLocator_TLE_SAT.txt", "r") as file:
@@ -63,9 +63,6 @@ def ETL(sim_num_int):
     # Displays number of passes in raw data
     print(len(list_passes), "passes in raw data.\n")
 
-    # Print statement for end
-    print("End of ETL process")
-
     # Looping through list_passes
     for pass_list in list_passes:
         # Calculates and appends pass duration in seconds to pass information 
@@ -97,8 +94,14 @@ def ETL(sim_num_int):
                         "\n",\
                         "\n"]
 
-    with open("test_transformed_data.txt", "w") as file:
+    # Print statement for writing to txt file
+    print(f"Writing transformed data for Sim {sim_num_int} to text file")
+
+    with open(f"..\Sim {sim_num_int}\test_transformed_data.txt", "w") as file:
         file.writelines(file_content)
+    
+    # Print statement for end
+    print(f"End of ETL process for Sim {sim_num_int}")
 
 # Calls ETL function
 ETL(43)
