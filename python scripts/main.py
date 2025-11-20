@@ -12,7 +12,7 @@ def ETL(sim_num_int):
     list_passes = []
 
     # Postcondition: Opens file of interest and extracts azimuth value at maximum elevation
-    with open(f"..\Sim {sim_num_int}\ContactLocator_TLE_SAT.txt", "r") as file:
+    with open(f"../Sim {sim_num_int}/ContactLocator_TLE_SAT.txt", "r") as file:
         # Reads first row of text file and initialises variables
         row_str = file.readline()
         row = row_str[:-1]
@@ -90,18 +90,20 @@ def ETL(sim_num_int):
         file_content.append(row_str)
 
     file_content += ["\n",\
-                        f"Number of events : {len(list_passes)}\n",\
-                        "\n",\
-                        "\n"]
+                    "\n",\
+                    f"Number of events : {len(list_passes)}\n",\
+                    "\n",\
+                    "\n"]
 
     # Print statement for writing to txt file
     print(f"Writing transformed data for Sim {sim_num_int} to text file")
 
-    with open(f"..\Sim {sim_num_int}\test_transformed_data.txt", "w") as file:
+    with open(f"../Sim {sim_num_int}/test_transformed_data.txt", "w") as file:
         file.writelines(file_content)
     
     # Print statement for end
     print(f"End of ETL process for Sim {sim_num_int}")
+    return
 
 # Calls ETL function
 ETL(43)
